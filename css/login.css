@@ -1,0 +1,236 @@
+/* @import url('../css/fonts.css'); */
+
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    /* theme colors*/
+--text-gray:#3f4954;
+--text-light:#686666da;
+--bg-color:#0f0f0f;
+--white:#ffffff;
+--midnight:#104f55;
+--text-green:rgb(255, 255, 255);
+
+/* gradient color */
+
+--sky: linear-gradient(120deg,#a1c4fd 0%,#c2e9fb 100%);
+
+
+    /*  theme font-family*/
+--Lato:'Lato',cursive;
+--montserrat:'Lato',cursive;
+--open_scan:'Lato',cursive;
+--Oswald:'Lato',cursive;
+--Roboto:'Lato',cursive;
+
+
+}
+body{
+    font-family: var(--Roboto);
+    background: linear-gradient(rgba(0, 0, 50, 0.5),rgba(0,0,50,0.5)),url(../assets/justice-league.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     height: 100vh; 
+     overflow: hidden; 
+    
+}
+h1{
+    font-weight: bold;
+    margin: 0;
+}
+p{
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+span{
+    font-size: 12px;
+}
+a{
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+a:hover{
+    color: lightskyblue;
+}
+.cont{
+    background: white;
+    border-radius: 40px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    height: 90%;
+    width: 768px;
+    max-width: 100%;
+    min-width: 480px;
+}
+.form-cont form{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.social-icon{
+    margin: 20px 0;
+}
+.social-icon a:hover {
+    background:rgb(67, 67, 223);
+    color: white;
+}
+.social-icon a{
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+}
+.form-cont input {
+    background: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+button{
+    border-radius: 10rem;
+    border:12px solid var(--sky) ;
+    background:#b325df;
+    color:rgb(255, 255, 255);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 1.2rem;
+    font-family: var(--open_scan);
+    
+ 
+ }
+ button:focus {
+     outline: none;
+ }
+ button:hover{
+     color: white;
+     background-color: skyblue;
+ }
+ button.ghost {
+     border-color: #fff;
+     border: white;
+
+ }
+ button.ghost:hover{
+    color: white;
+    background-color: skyblue;
+}
+ .form-cont{
+     position: absolute;
+     top: 0;
+     height: 100%;
+     transition: all 0.6s ease-in-out;
+     border-radius:40px ;
+
+ }
+ .sign-in {
+     left: 0;
+     width: 50%;
+     z-index: 2;
+
+ }
+ .sign-up {
+     left: 0;
+     width: 50%;
+     z-index: 1;
+     opacity: 0;
+
+ }
+.img-cont{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+
+}
+.img{
+    background: url(../assets/blue-milky-way-galaxy-4k-7y.jpg);
+    color: white;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+
+    
+}
+.img-panel{
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    height: 100%;
+    width:50% ;
+    text-align: center;
+    transform: translateX(0);
+    transition:transform 0.6s ease-in-out ;
+}
+.img-right{
+    right: 0;
+    transform: translateX(0);
+
+}
+.img-left{
+    transform: translateX(-20%);
+
+}
+/*-----animation-------*/
+/*----move sign in to right------*/
+.cont.right-panel-active .sign-in{
+    transform: translateX(100%);
+}
+/*-----move img to left ----*/
+.cont.right-panel-active .img-cont{
+    transform: translateX(-100%);
+}
+/* bring signup  over signin---*/
+.cont.right-panel-active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+/* move overlay back to the right*/
+.cont.right-panel-active .img{
+    transform: translateX(50%);
+
+}
+.cont.right-panel-active .img-left{
+    transform: translateX(0);
+}
+.cont.right-panel-active .img-right{
+    transform: translateX(20%);
+}
